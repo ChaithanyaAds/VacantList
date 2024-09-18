@@ -6,11 +6,15 @@
     <title>Chaithanya Ads - Premium Hoarding Advertisements</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Chaithanya Ads</h1>
+            <div class="logo-container">
+                <img src="Logo.jpeg" alt="Chaithanya Ads Logo" class="logo">
+                <h1>Chaithanya Ads</h1>
+            </div>
             <nav>
                 <ul>
                     <li><a href="index.html" class="active">Home</a></li>
@@ -20,8 +24,15 @@
             </nav>
         </div>
     </header>
-    <div class="container main">
-        <h2>Premium Hoarding Locations</h2>
+    <div class="hero">
+        <div class="container">
+            <h1 data-aos="fade-up">Premium Outdoor Advertising Solutions</h1>
+            <p data-aos="fade-up" data-aos-delay="200">Elevate your brand with strategic placements across Andhra Pradesh</p>
+            <a href="#locations" class="cta-button" data-aos="fade-up" data-aos-delay="400">Explore Locations</a>
+        </div>
+    </div>
+    <div class="container main" id="locations">
+        <h2 data-aos="fade-up">Featured Hoarding Locations</h2>
         <div class="hoarding">
             <div class="image-container">
                 <img src="pic.jpeg" alt="Hoarding 1" class="active">
@@ -52,11 +63,30 @@
             </div>
         </div>
     </div>
+    <section class="testimonials">
+        <div class="container">
+            <h2 data-aos="fade-up">What Our Clients Say</h2>
+            <div class="testimonial-grid">
+                <!-- Add 3-4 client testimonials here -->
+            </div>
+        </div>
+    </section>
+    <section class="cta">
+        <div class="container">
+            <h2 data-aos="fade-up">Ready to Boost Your Brand Visibility?</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Contact us today for premium advertising spaces!</p>
+            <a href="contact.html" class="cta-button" data-aos="fade-up" data-aos-delay="400">Get Started</a>
+        </div>
+    </section>
     <footer>
         <div class="container">
             <p>&copy; 2023 Chaithanya Ads. All rights reserved.</p>
         </div>
     </footer>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
