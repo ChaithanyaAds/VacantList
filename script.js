@@ -23,11 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentIndex = 0;
 
         function showImage(index) {
-            images.forEach(img => {
-                img.style.display = 'none';
-                img.classList.remove('active');
-            });
-            images[index].style.display = 'block';
+            images.forEach(img => img.classList.remove('active'));
             images[index].classList.add('active');
         }
 
