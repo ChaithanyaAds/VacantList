@@ -52,6 +52,29 @@
                 <!-- Add 3-4 team member cards here -->
             </div>
         </div>
+
+        <!-- New section for customers -->
+        <div class="customers-section" data-aos="fade-up">
+            <h3>Our Valued Customers</h3>
+            <div class="logo-carousel">
+                <div class="logo-slide">
+                    <img src="A2B.png" alt="A2B">
+                    <img src="AHA.png" alt="AHA">
+                    <img src="ap.png" alt="AP">
+                    <img src="APURVA.avif" alt="APURVA">
+                    <img src="flip.png" alt="Flip">
+                    <img src="minerva.jpeg" alt="Minerva">
+                </div>
+                <div class="logo-slide">
+                    <img src="PRIME.svg" alt="PRIME">
+                    <img src="PS4.png" alt="PS4">
+                    <img src="Quote.png" alt="Quote">
+                    <img src="RS.png" alt="RS">
+                    <img src="SAROVAR.png" alt="SAROVAR">
+                    <img src="A2B.png" alt="A2B">
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
         <div class="container">
@@ -61,6 +84,31 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
+
+        const logoCarousel = document.querySelector('.logo-carousel');
+        let isHovered = false;
+
+        logoCarousel.addEventListener('mouseenter', () => {
+            isHovered = true;
+            logoCarousel.style.animationPlayState = 'paused';
+        });
+
+        logoCarousel.addEventListener('mouseleave', () => {
+            isHovered = false;
+            logoCarousel.style.animationPlayState = 'running';
+        });
+
+        logoCarousel.addEventListener('touchstart', () => {
+            isHovered = true;
+            logoCarousel.style.animationPlayState = 'paused';
+        });
+
+        logoCarousel.addEventListener('touchend', () => {
+            setTimeout(() => {
+                isHovered = false;
+                logoCarousel.style.animationPlayState = 'running';
+            }, 3000);
+        });
     </script>
 </body>
 </html>

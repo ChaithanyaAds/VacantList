@@ -1,3 +1,18 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+    const hero = document.getElementById('hero');
+    let scrollThreshold = 100; // Adjust this value to control when the effect triggers
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > scrollThreshold) {
+            hero.classList.add('darken');
+            hero.classList.add('show-content');
+        } else {
+            hero.classList.remove('darken');
+            hero.classList.remove('show-content');
+        }
+    });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const hoardings = document.querySelectorAll('.hoarding');
 

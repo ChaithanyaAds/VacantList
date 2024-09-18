@@ -319,15 +319,18 @@ footer {
 }
 
 .hero {
-    background-image: url('path-to-your-background-image.jpg');
+    background-image: url('Quote.png');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
     color: #fff;
     position: relative;
+    transition: all 0.5s ease;
 }
 
 .hero::before {
@@ -337,34 +340,81 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0); /* Start with no overlay */
+    transition: background 0.5s ease;
+    z-index: 1;
 }
 
 .hero .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    max-width: 800px;
+    padding: 2rem;
+    opacity: 0; /* Start with invisible text */
+    transition: opacity 1s ease, transform 0.5s ease;
 }
 
-.hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+.hero h1, .hero p, .hero .cta-button {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    transition: opacity 1s ease, transform 0.5s ease;
 }
 
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+.hero.darken::before {
+    background: rgba(0, 0, 0, 0.6); /* Darken the overlay when scrolled */
+}
+
+.hero.show-content .container {
+    opacity: 1;
+    transform: scale(1.05); /* Slightly increase the size of the container */
+}
+
+.hero.show-content h1, 
+.hero.show-content p, 
+.hero.show-content .cta-button {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.hero.show-content h1 { 
+    transition-delay: 0.2s;
+    font-size: 3.8rem; /* Increase font size */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Add text shadow for better visibility */
+}
+
+.hero.show-content p { 
+    transition-delay: 0.4s;
+    font-size: 1.8rem; /* Increase font size */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Add text shadow for better visibility */
+}
+
+.hero.show-content .cta-button { 
+    transition-delay: 0.6s;
+    font-size: 1.4rem; /* Increase font size */
+}
+
+@media (max-width: 768px) {
+    .hero.show-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero.show-content p {
+        font-size: 1.4rem;
+    }
+
+    .hero.show-content .cta-button {
+        font-size: 1.2rem;
+    }
 }
 
 .cta-button {
     display: inline-block;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 2rem;
     background-color: var(--primary-color);
     color: #fff;
     text-decoration: none;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -374,5 +424,72 @@ footer {
     background-color: var(--secondary-color);
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .cta-button {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+    }
+}
+
+.customers-section {
+    margin-top: 2rem;
+    overflow: hidden;
+}
+
+.customers-section h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.logo-carousel {
+    display: flex;
+    width: 200%;
+    animation: slide 30s linear infinite;
+}
+
+.logo-slide {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-slide img {
+    height: 60px;
+    object-fit: contain;
+    margin: 0 10px;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Add touch support for mobile devices */
+@media (hover: none) and (pointer: coarse) {
+    .logo-carousel {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .logo-slide {
+        scroll-snap-align: start;
+    }
 }
 
